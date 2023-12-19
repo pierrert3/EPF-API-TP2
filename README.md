@@ -153,6 +153,22 @@ About the API workflow:
 
 - **Step 15: Update and add Firestore parameters:** Add endpoints to update or add parameters in Firestore.
 
+- **Step 16: Authentication:** Add endpoints to update or add parameters in Firestore.
+
+- **Step 17: User management:** 
+
+- **Step 18: Rate limiting:** 
+
+- **Step 19: API versioning:** 
+
+- **Step 20: Error Handling:** 
+
+- **Step 21: API testing:** 
+
+- **Step 22: CI/CD pipeline:** 
+
+- **Step 23: API security best practices:** 
+
 The completion of this TP is relatively long and may overtake TP3 
 
 ### Documentation link :
