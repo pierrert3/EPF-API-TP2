@@ -1,4 +1,4 @@
-from src.services.data import get_kaggle_data, load_kaggle_data_json, process_species_data, split_dataset, train_and_save_model, make_prediction
+from src.services.data import get_kaggle_data, load_kaggle_data_json, process_species_data, split_dataset, train_and_save_model, make_prediction, get_firestore_parameters, update_firestore_parameters, create_new_firestore_parameters
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 
@@ -57,3 +57,30 @@ def predict(SepalLengthCm: float, SepalWidthCm: float, PetalLengthCm: float, Pet
         return f"Error: {str(e)}"
     
     return JSONResponse(content=prediction, status_code=200)
+
+@router.get("/data/get_firestore_collection_parameters")
+def create_collection():
+    try:
+        parametres = get_firestore_parameters()
+    except:
+        return "Error: couldn't get Firestone collection parameters."
+
+    return parametres
+
+@router.get("/data/update_firestore_collection_parameters")
+def update_parameters(n_estimators: int):
+    try:
+        parameters = update_firestore_parameters(n_estimators)
+    except:
+        return "Error: couldn't update Firestone collection parameters."
+
+    return parameters
+
+@router.get("/data/new_firestore_collection_parameters")
+def update_parameters(parameter_name: str, parameter_value: int):
+    try:
+        parameters = create_new_firestore_parameters(parameter_name, parameter_value)
+    except:
+        return "Error: couldn't create new Firestone collection parameters."
+
+    return parameters
